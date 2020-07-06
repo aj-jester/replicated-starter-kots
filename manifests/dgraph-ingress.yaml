@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress
+  name: dgraph-ingress
   annotations:
     kots.io/when: '{{repl ConfigOptionEquals "use_ingress" "1" }}'
 spec:
@@ -10,6 +10,6 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: example-nginx
-            servicePort: 80
+            serviceName: dgraph-public
+            servicePort: 8000
 

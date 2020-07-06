@@ -1,14 +1,10 @@
 apiVersion: kots.io/v1beta1
 kind: Application
 metadata:
-  name: app-slug
+  name: dgraph-enterprise
 spec:
-  title: App Name
-  icon: https://github.com/cncf/artwork/blob/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
+  title: Dgraph Enterprise
+  icon: https://img.stackshare.io/service/7071/MrEYkPFd_400x400.jpg
   statusInformers:
-    - deployment/example-nginx
-  ports:
-    - serviceName: "example-nginx"
-      servicePort: 80
-      localPort: 8888
-      applicationUrl: "http://example-nginx"
+    - statefulset/dgraph
+    - service/dgraph-public

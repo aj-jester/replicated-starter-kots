@@ -1,16 +1,13 @@
 apiVersion: troubleshoot.replicated.com/v1beta1
 kind: Collector
 metadata:
-  name: collector-sample
+  name: dgraph-bundle
 spec:
   collectors:
     - clusterInfo: {}
     - clusterResources: {}
     - logs:
+        collectorName: dgraph-logs
+        name: dgraph/logs
         selector:
-          - app=example
-          - component=nginx
-        namespace: repl{{ Namespace }}
-        limits:
-          maxAge: 30d
-          maxLines: 10000
+          - app=dgraph
